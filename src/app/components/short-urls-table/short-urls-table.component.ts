@@ -136,8 +136,4 @@ export class ShortUrlsTableComponent implements OnInit {
       }
     );
   }
-
-  onDeleteButtonClick(id: number) {
-    this.deleteUrlById(id);
-  }
 }

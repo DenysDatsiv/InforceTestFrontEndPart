@@ -32,7 +32,7 @@
       <td class="long-url-cell">{{ url.originalUrl }}</td>
       <td>{{ url.shortenerUrl }}</td>
       <td>
-        <button (click)="onDeleteButtonClick(url.id)"
+        <button (click)="deleteUrlById(url.id)"
                 *ngIf="isUserAuthorized() && (role === 'Administrator' || userName === url.createdBy)"
                 class="action-btn">Delete
         </button>
