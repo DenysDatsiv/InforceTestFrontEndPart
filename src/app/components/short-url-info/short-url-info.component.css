@@ -1,0 +1,41 @@
+.info-text {
+  color: var(--primary-light);
+}
+
+.info-header {
+  display: flex;
+  justify-content: center;
+}
+
+.info-main-block {
+  margin-top: 20vh;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 10px;
+  width: 30%;
+  background-color: var(--primary-purple);
+  border-radius: 8px;
+}
+
+.back-btn {
+  background-color: transparent;
+  color: var(--primary-light);
+  font-size: 40px;
+}
+
+@media (max-width: 480px) {
+  .info-block {
+    width: 80%;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .info-block {
+    width: 85%;
+  }
+
+}

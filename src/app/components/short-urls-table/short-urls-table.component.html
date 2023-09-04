@@ -1,0 +1,45 @@
+<div class="navigaion-panel">
+  <button (click)="logout()" *ngIf="isUserAuthorized()">Logout</button>
+  <button (click)="login()" *ngIf="!isUserAuthorized()">Login</button>
+</div>
+<div *ngIf="isUserAuthorized()" class="url-inputs">
+  <h2>URL Shortener</h2>
+  <form (ngSubmit)="createUrl()" [formGroup]="urlForm">
+    <input formControlName="originalUrl" placeholder="Enter the URL" type="text"/>
+    <button [disabled]="urlForm.invalid" type="submit">Create</button>
+  </form>
+</div>
+<div *ngIf="originalUrlExists">
+  <p>URL already exists. Please enter a unique URL.</p>
+</div>
+
+<div *ngIf="listData.length === 0; else dataPresent">
+  <p>No data available.</p>
+</div>
+<ng-template #dataPresent>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th class="long-url-cell">Original URL</th>
+      <th>Shortener URL</th>
+      <th *ngIf="isUserAuthorized()">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let url of listData">
+      <td>№ {{ url.id }}</td>
+      <td class="long-url-cell">{{ url.originalUrl }}</td>
+      <td>{{ url.shortenerUrl }}</td>
+      <td>
+        <button (click)="onDeleteButtonClick(url.id)"
+                *ngIf="isUserAuthorized() && (role === 'Administrator' || userName === url.createdBy)"
+                class="action-btn">Delete
+        </button>
+        <button (click)="viewMore(url.id)" *ngIf="isUserAuthorized()" class="action-btn">View More</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</ng-template>
+

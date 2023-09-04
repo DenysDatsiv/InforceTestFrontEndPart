@@ -1,0 +1,17 @@
+:root {
+  --primary-dark: #040404;
+  --primary-light: #f2f2f2;
+  --primary-purple: #a050cc;
+  --error: #FF3366;
+}
+
+body {
+  background: var(--primary-dark);
+}
+
+.long-url-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}

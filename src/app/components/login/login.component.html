@@ -1,0 +1,24 @@
+<form (ngSubmit)="login()" [formGroup]="loginForm" class="login-form">
+  <h2 class="login-header">Login</h2>
+  <input
+    [ngClass]="{ 'red-border': invalidLogin }"
+    autocomplete="disabled"
+    autofocus
+    formControlName="username"
+    id="username"
+    placeholder="Username"
+    required
+    type="text"
+  >
+  <input
+    [ngClass]="{ 'red-border': invalidLogin }"
+    autocomplete="disabled"
+    formControlName="password"
+    id="password"
+    placeholder="Password"
+    required
+    type="password"
+  >
+  <p *ngIf="invalidLogin" class="error-message">Invalid user or password</p>
+  <button class="submit-btn" type="submit">Log in</button>
+</form>

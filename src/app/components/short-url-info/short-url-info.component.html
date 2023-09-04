@@ -1,0 +1,15 @@
+<button (click)="goBack()" class="back-btn">&#8592;</button>
+<div class="info-main-block">
+  <h2 class="info-text info-header">Short URL Info</h2>
+  <div *ngIf="shortUrlInfo" class="info-block">
+    <p class="info-text">ID: {{ shortUrlInfo.id }}</p>
+    <p class="info-text long-url-cell">Original URL: {{ shortUrlInfo.originalUrl }}</p>
+    <p class="info-text">Shortener URL: {{ shortUrlInfo.shortenerUrl }}</p>
+    <p class="info-text">Created by: {{shortUrlInfo.createdBy}}</p>
+    <p class="info-text">Time of creating: {{shortUrlInfo.createdDate}}</p>
+  </div>
+  <div *ngIf="!shortUrlInfo">
+    <p>Loading...</p>
+  </div>
+
+</div>
